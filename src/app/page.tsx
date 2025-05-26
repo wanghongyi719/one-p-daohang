@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { siteData } from '@/data/sites';
+import Image from 'next/image';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -76,9 +77,20 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="site-card group block p-6 bg-white rounded-2xl shadow-sm hover:shadow-xl"
                   >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-600">
+                    <div className="flex items-start space-x-4">
+                      {site.favicon && (
+                        <div className="flex-shrink-0 w-8 h-8 relative">
+                          <Image
+                            src={site.favicon}
+                            alt={`${site.name} 图标`}
+                            width={32}
+                            height={32}
+                            className="rounded-lg"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-xl font-medium text-gray-900 group-hover:text-blue-600 truncate">
                           {site.name}
                         </h3>
                         {site.description && (
@@ -88,7 +100,7 @@ export default function Home() {
                         )}
                       </div>
                       <svg
-                        className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transform group-hover:translate-x-1 transition-transform"
+                        className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transform group-hover:translate-x-1 transition-transform flex-shrink-0"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
