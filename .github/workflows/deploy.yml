@@ -30,4 +30,7 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: out 
+        folder: out
+        
+    - name: Configure custom domain
+      run: echo "aiwebhubtools.com" > out/CNAME 
