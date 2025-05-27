@@ -27,10 +27,10 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Configure custom domain
+      run: echo "aiwebhubtools.com" > out/CNAME 
+
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: out
-        
-    - name: Configure custom domain
-      run: echo "aiwebhubtools.com" > out/CNAME 
+        folder: out 
