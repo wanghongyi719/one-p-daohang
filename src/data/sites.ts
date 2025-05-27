@@ -1,11 +1,17 @@
-interface Site {
+export interface StarredInfo {
+  isStarred: boolean;
+  starredAt: number;
+}
+
+export interface Site {
   name: string;
   url: string;
   description?: string;
   favicon?: string;
+  starred?: StarredInfo;
 }
 
-interface Category {
+export interface Category {
   name: string;
   sites: Site[];
 }
