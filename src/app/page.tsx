@@ -113,11 +113,11 @@ export default function Home() {
                         e.stopPropagation();
                         handleStarClick(site.url);
                       }}
-                      className="absolute top-4 right-4 p-1 rounded-full hover:bg-gray-100 transition-colors z-10"
+                      className="absolute top-6 right-6 p-1.5 rounded-full hover:bg-gray-100 transition-colors z-10"
                     >
                       {starredSites[site.url]?.isStarred ? (
                         <svg
-                          className="w-5 h-5 text-yellow-400 fill-current"
+                          className="w-6 h-6 text-yellow-400 fill-current"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                         >
@@ -125,7 +125,7 @@ export default function Home() {
                         </svg>
                       ) : (
                         <svg
-                          className="w-5 h-5 text-yellow-400 stroke-current"
+                          className="w-6 h-6 text-yellow-400 stroke-current"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -140,15 +140,16 @@ export default function Home() {
                       )}
                     </button>
 
-                    <div className="flex items-start space-x-4">
+                    {/* 站点信息区域 */}
+                    <div className="flex items-center space-x-4">
                       {site.favicon && (
-                        <div className="flex-shrink-0 w-8 h-8 relative">
+                        <div className="flex-shrink-0 w-12 h-12 relative">
                           <Image
                             src={site.favicon}
                             alt={`${site.name} 图标`}
-                            width={32}
-                            height={32}
-                            className="rounded-lg"
+                            width={48}
+                            height={48}
+                            className="rounded-lg object-contain"
                           />
                         </div>
                       )}
